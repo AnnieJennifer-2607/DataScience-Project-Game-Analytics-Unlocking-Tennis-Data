@@ -95,30 +95,6 @@ elif selected == "Table Explorer":
     df = load_table(selected_table)
     st.dataframe(df, use_container_width=True)
 
-# --- Page: Upload Data ---
-# elif selected == "Upload Data":
-#     st.title("📂 Upload CSV to Table")
-
-#     uploaded_file = st.file_uploader("Choose a CSV file", type="csv")
-#     if uploaded_file:
-#         df_upload = pd.read_csv(uploaded_file)
-#         st.write("Preview:")
-#         st.dataframe(df_upload)
-
-#         selected_table = st.selectbox("Select target table", ["categories", "competitions", "competitorsdetails", "complexes", "ranking", "venue"])
-
-#         if st.button("Upload to Database"):
-#             conn = get_connection()
-#             cursor = conn.cursor()
-#             for _, row in df_upload.iterrows():
-#                 columns = ", ".join(row.index)
-#                 placeholders = ", ".join(["%s"] * len(row))
-#                 sql = f"INSERT INTO {selected_table} ({columns}) VALUES ({placeholders})"
-#                 cursor.execute(sql, tuple(row))
-#             conn.commit()
-#             conn.close()
-#             st.success("Data uploaded successfully!")
-
 # --- Page: Custom Query ---
 elif selected == "Custom Query":
     st.title("🧮 Kick Off Your Own SQL Search")
